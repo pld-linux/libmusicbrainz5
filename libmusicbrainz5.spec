@@ -5,6 +5,7 @@ Version:	5.0.1
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
+#Source0Download: https://github.com/metabrainz/libmusicbrainz/downloads
 Source0:	https://github.com/downloads/metabrainz/libmusicbrainz/libmusicbrainz-%{version}.tar.gz
 # Source0-md5:	a0406b94c341c2b52ec0fe98f57cadf3
 URL:		http://musicbrainz.org/doc/libmusicbrainz/
@@ -13,6 +14,7 @@ BuildRequires:	neon-devel >= 0.25
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.604
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,14 +47,7 @@ używających biblioteki libmusicbrainz.
 %setup -q -n libmusicbrainz-%{version}
 
 %build
-%cmake . \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG" \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DCMAKE_VERBOSE_MAKEFILE=ON \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64
-%endif
+%cmake .
 
 %{__make}
 
@@ -70,9 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS.txt NEWS.txt
+%doc AUTHORS.txt NEWS.txt README.md
 %attr(755,root,root) %{_libdir}/libmusicbrainz5.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmusicbrainz5.so.?
+%attr(755,root,root) %ghost %{_libdir}/libmusicbrainz5.so.0
 
 %files devel
 %defattr(644,root,root,755)
