@@ -1,13 +1,13 @@
 Summary:	A software library for accesing MusicBrainz servers
 Summary(pl.UTF-8):	Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz5
-Version:	5.0.1
-Release:	2
+Version:	5.1.0
+Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 #Source0Download: https://github.com/metabrainz/libmusicbrainz/downloads
-Source0:	https://github.com/downloads/metabrainz/libmusicbrainz/libmusicbrainz-%{version}.tar.gz
-# Source0-md5:	a0406b94c341c2b52ec0fe98f57cadf3
+Source0:	https://github.com/metabrainz/libmusicbrainz/releases/download/release-%{version}/libmusicbrainz-%{version}.tar.gz
+# Source0-md5:	4cc5556aa40ff7ab8f8cb83965535bc3
 URL:		http://musicbrainz.org/doc/libmusicbrainz/
 BuildRequires:	cmake >= 2.6
 BuildRequires:	neon-devel >= 0.25
@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS.txt NEWS.txt README.md
 %attr(755,root,root) %{_libdir}/libmusicbrainz5.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmusicbrainz5.so.0
+%attr(755,root,root) %ghost %{_libdir}/libmusicbrainz5.so.1
 
 %files devel
 %defattr(644,root,root,755)
