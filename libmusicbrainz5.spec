@@ -5,7 +5,7 @@ Version:	5.1.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-#Source0Download: https://github.com/metabrainz/libmusicbrainz/downloads
+#Source0Download: https://github.com/metabrainz/libmusicbrainz/releases
 Source0:	https://github.com/metabrainz/libmusicbrainz/releases/download/release-%{version}/libmusicbrainz-%{version}.tar.gz
 # Source0-md5:	4cc5556aa40ff7ab8f8cb83965535bc3
 URL:		http://musicbrainz.org/doc/libmusicbrainz/
@@ -13,6 +13,7 @@ BuildRequires:	cmake >= 2.6
 BuildRequires:	neon-devel >= 0.25
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.604
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,6 +34,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe do rozwijania programów używających lib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
+Requires:	libxml2-devel >= 2.0
 Requires:	neon-devel >= 0.25
 
 %description devel
