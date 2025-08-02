@@ -2,12 +2,13 @@ Summary:	A software library for accesing MusicBrainz servers
 Summary(pl.UTF-8):	Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz5
 Version:	5.1.0
-Release:	3
+Release:	4
 License:	LGPL v2.1
 Group:		Libraries
 #Source0Download: https://github.com/metabrainz/libmusicbrainz/releases
 Source0:	https://github.com/metabrainz/libmusicbrainz/releases/download/release-%{version}/libmusicbrainz-%{version}.tar.gz
 # Source0-md5:	4cc5556aa40ff7ab8f8cb83965535bc3
+Patch0:		build.patch
 URL:		http://musicbrainz.org/doc/libmusicbrainz/
 BuildRequires:	cmake >= 2.6
 BuildRequires:	neon-devel >= 0.25
@@ -47,6 +48,7 @@ używających biblioteki libmusicbrainz.
 
 %prep
 %setup -q -n libmusicbrainz-%{version}
+%patch -P0 -p1
 
 %build
 %cmake .
